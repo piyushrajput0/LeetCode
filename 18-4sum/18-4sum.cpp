@@ -35,7 +35,12 @@ if(i>0 && nums[i]==nums[i-1])
                     {
                         
                         s.insert({nums[i],nums[j],nums[low],nums[high]});
-                        low++;
+                         int x=nums[low];
+                       while(low<high && nums[low]==x)
+                       {
+                              low++;
+                       }
+                        // low++;
                         high--;
                     }
                     else if((nums[low]+nums[high])>find)
