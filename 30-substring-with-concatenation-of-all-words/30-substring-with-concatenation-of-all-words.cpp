@@ -39,13 +39,16 @@ public:
                     {
                         copyofmap.erase(str);
                     }
+                    int flag=true;
                     if(copyofmap.size()==0)
                     {
                          ans.push_back(i-maxlen+1);
-                        str="";
-                        continue;
+                        // str="";
+                        // continue;
+                        flag=false;
                             
                     }
+                    if(flag)
                     for(int j=i+1;j<s.size();j++)
                     {
                         
