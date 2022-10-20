@@ -53,6 +53,7 @@ public:
                     }
                     if(temp==endWord)
                     {
+                        return cn+1;
                         ans=min(ans,cn+1);
                         cout<<ans<<endl;
                     }
