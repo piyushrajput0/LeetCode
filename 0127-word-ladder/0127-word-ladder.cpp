@@ -54,6 +54,7 @@ public:
                     if(temp==endWord)
                     {
                         ans=min(ans,cn+1);
+                        cout<<ans<<endl;
                     }
                     
                 }
