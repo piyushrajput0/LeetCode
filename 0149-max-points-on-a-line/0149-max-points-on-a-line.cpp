@@ -6,7 +6,7 @@ public:
         for(int i=0;i<points.size();i++)
         {
             map<double,int>temp;
-            cout<<points[i][0]<<" "<<points[i][1]<<" : "<<endl;
+            // cout<<points[i][0]<<" "<<points[i][1]<<" : "<<endl;
             for(int j=0;j<points.size();j++)
             {
                 if(i!=j)
@@ -20,13 +20,13 @@ public:
                     else
                      tn=atan(a);
                     
-                    cout<<points[i][0]<<" "<<points[j][0]<<" : "<<a<<" "<<tn<<endl;
+                    // cout<<points[i][0]<<" "<<points[j][0]<<" : "<<a<<" "<<tn<<endl;
                     
                     temp[tn]++;
                     
                 }
             }
-            cout<<endl;
+            // cout<<endl;
             mp[{points[i][0],points[i][1]}]=temp;
         }
         
