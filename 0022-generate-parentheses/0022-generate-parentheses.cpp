@@ -64,7 +64,11 @@ public:
         }
         
         help(n,str+'(');
-        help(n,str+')');
+        if(str.size()!=0)
+        {
+             help(n,str+')');
+        }
+       
     }
     vector<string> generateParenthesis(int n) {
         
