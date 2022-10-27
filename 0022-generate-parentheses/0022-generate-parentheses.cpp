@@ -52,9 +52,9 @@ public:
         return true;
         
     }
-    void help(int n,string str)
+    void help(int n,string str,int o,int c)
     {
-        if(str.size()==(n*2))
+        if(o==n && c==n)
         {
             
             if(check(str))
@@ -63,10 +63,16 @@ public:
             return ;
         }
         
-        help(n,str+'(');
+        if(o<n)
+        {
+            cout<<str<<endl;
+           help(n,str+'(',o+1,c);
+        }
+        
         if(str.size()!=0)
         {
-             help(n,str+')');
+            if(c<n)
+             help(n,str+')',o,c+1);
         }
        
     }
@@ -78,7 +84,7 @@ public:
             
         }
         
-        help(n,"");
+        help(n,"",0,0);
         return ans;
         
     }
