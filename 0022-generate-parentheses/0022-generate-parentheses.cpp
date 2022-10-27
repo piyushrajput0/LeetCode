@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<string>ans;
+    
     
     bool check(string &str)
     {
@@ -52,7 +52,7 @@ public:
         return true;
         
     }
-    void help(int n,string str,int o,int c)
+    void help(int &n,string str,int o,int c,vector<string> &ans)
     {
         if(o==n && c==n)
         {
@@ -66,13 +66,13 @@ public:
         if(o<n)
         {
             cout<<str<<endl;
-           help(n,str+'(',o+1,c);
+           help(n,str+'(',o+1,c,ans);
         }
         
         if(str.size()!=0)
         {
             if(c<n)
-             help(n,str+')',o,c+1);
+             help(n,str+')',o,c+1,ans);
         }
        
     }
@@ -83,8 +83,8 @@ public:
             return {"()"};
             
         }
-        
-        help(n,"",0,0);
+        vector<string>ans;
+        help(n,"",0,0,ans);
         return ans;
         
     }
