@@ -12,22 +12,40 @@ public:
         }
         vector<int>v(n,0);
         v[n-1]=1;
-        
+        int zero=0;
+        int index=-1;
+        int del=0;
         for(int i=n-2;i>=0;i--)
         {
             int x=nums[i];
-            for(int j=1;j<=x && i+j<n;j++)
+            
+            if(zero)
             {
-                if(v[i+j]==1)
+                if(i+x>index)
                 {
-                    // cout<<i<<" "<<i+j<<endl;
-                    v[i]=1;
-                    break;
+                    cout<<i<<endl;
+                    del=1;
                 }
             }
+            
+            if(nums[i]==0 && zero==0)
+            {
+                zero=1;
+                index=i;
+            }
+            if(del)
+            {
+                zero=0;
+                index=-1;
+                del=0;
+            }
         }
-        
-        return v[0];
+
+        if(zero==0)
+        {
+            return true;
+        }
+        return false;
          
     }
 };
