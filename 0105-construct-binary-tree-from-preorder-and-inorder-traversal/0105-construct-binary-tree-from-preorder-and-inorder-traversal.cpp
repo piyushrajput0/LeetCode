@@ -12,17 +12,7 @@
 class Solution {
 public:
     
-    int findpos(vector<int>inorder,int x)
-    {
-        for(int i=0;i<inorder.size();i++)
-        {
-            if(inorder[i]==x)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
+    unordered_map<int,int>mp;
     TreeNode* help(int &i,vector<int>&preorder,vector<int>&inorder,int left,int right)
     {
         if(left>right || i==preorder.size())
@@ -31,7 +21,7 @@ public:
         }
         
         TreeNode *node=new TreeNode(preorder[i]);
-        int x=findpos(inorder,preorder[i]);
+        int x=mp[preorder[i]];
         
         i+=1;
         
@@ -41,6 +31,10 @@ public:
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         
+        for(int i=0;i<preorder.size();i++)
+        {
+            mp[inorder[i]]=i;
+        }
         int i=0;
         return help(i,preorder,inorder,0,inorder.size()-1);
         
