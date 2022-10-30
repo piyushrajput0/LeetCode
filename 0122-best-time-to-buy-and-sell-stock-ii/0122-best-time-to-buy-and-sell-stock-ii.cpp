@@ -2,37 +2,20 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         
+        int currbuy=0;
+        int currsell=0;
+        
         int n=prices.size();
-        int profit=0;
-        int mx=0;
-        int mn=prices[0];
-        for(int i=1;i<n;i++)
+        for(int i=n-1;i>=0;i--)
         {
-            if(mn>=prices[i]  && mx==0)
-            {
-                mn=prices[i];
-            }
-            else if(mn<=prices[i] && mx<=prices[i])
-            {
-                
-                    mx=prices[i];
-                
-                
-            }
-            else
-            {
-                profit+=mx-mn;
-                
-                mn=prices[i];
-                mx=0;
+            int buy=max(currbuy,currsell-prices[i]);
+            int sell=max(currsell,currbuy+prices[i]);
             
-            }
-        }
-        if(mx>mn)
-        {
-            profit+=mx-mn;
+           currbuy=buy;
+            currsell=sell;
         }
         
-        return profit;
+        return currbuy;
     }
+        
 };
