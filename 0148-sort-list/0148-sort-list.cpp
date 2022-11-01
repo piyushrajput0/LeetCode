@@ -55,7 +55,7 @@ public:
         
         while(list1)
         {
-            tail->next=new ListNode(list1->val);
+            tail->next=list1;
                  
                  
                  list1=list1->next;
@@ -64,7 +64,7 @@ public:
         
         while(list2)
         {
-            tail->next=new ListNode(list2->val);
+            tail->next=list2;
                  
                  
                  list2=list2->next;
