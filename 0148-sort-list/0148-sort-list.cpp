@@ -11,7 +11,24 @@
 class Solution {
 public:
     
-    
+    ListNode *midnode(ListNode *head)
+    {
+        if(head==NULL)
+        {
+            return head;
+        }
+        
+        ListNode *slow=head;
+        ListNode *fast=head;
+        
+        while(fast->next && fast->next->next)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        
+        return slow;
+    }
     ListNode* mergelist(ListNode* list1,ListNode *list2)
     {
         ListNode *curr=new ListNode (-1);
@@ -58,24 +75,15 @@ public:
     }
     ListNode* merge(ListNode *head)
     {
-        if(head->next==NULL)
+        if(head==NULL || head->next==NULL)
         {
             return head ;
         }
-        ListNode *temp=NULL;
-        ListNode *slow=head;
-        ListNode *fast=head;
-        
-        while(fast!=NULL && fast->next!=NULL)
-        {
-            temp=slow;
-            slow=slow->next;
-            
-            fast=fast->next->next;
-        }
-        temp->next=NULL;
+        ListNode *mid=midnode(head);
+        ListNode *temp=mid->next;
+        mid->next=NULL;
         ListNode *list1=merge(head);
-        ListNode *list2=merge(slow);
+        ListNode *list2=merge(temp);
        return mergelist(list1,list2);
         
         
